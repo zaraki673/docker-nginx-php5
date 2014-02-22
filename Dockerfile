@@ -2,15 +2,12 @@
 # http://wiki.nginx.org/
 # http://us.php.net/
 
-FROM ubuntu:precise
-MAINTAINER Ryan Seto <ryanseto@yak.net>
-
-RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list && \
-        apt-get update && \
-        apt-get upgrade
+FROM debian:wheezy
+MAINTAINER Matt Renner <matt@rennernz.com>
 
 # Ensure UTF-8
 RUN apt-get update
+RUN apt-get upgrade
 RUN locale-gen en_US.UTF-8
 ENV LANG       en_US.UTF-8
 ENV LC_ALL     en_US.UTF-8
