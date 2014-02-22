@@ -10,13 +10,13 @@ ENV DEBIAN_FRONTEND noninteractive
 
 # Ensure UTF-8
 RUN apt-get update
-RUN DEBIAN_FRONTEND=noninteractive apt-get upgrade
+RUN apt-get -y upgrade
 RUN locale-gen en_US.UTF-8
 ENV LANG       en_US.UTF-8
 ENV LC_ALL     en_US.UTF-8
 
 # Install
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y nginx \
+RUN apt-get install -y nginx \
     php5-fpm php5-mysql php-apc php5-imagick php5-imap php5-mcrypt php5-gd libssh2-php
 
 RUN echo "cgi.fix_pathinfo = 0;" >> /etc/php5/fpm/php.ini
