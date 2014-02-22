@@ -5,15 +5,15 @@
 FROM debian:wheezy
 MAINTAINER Matt Renner <matt@rennernz.com>
 
+# Set noninteractive mode for apt-get
+ENV DEBIAN_FRONTEND noninteractive
+
 # Ensure UTF-8
 RUN apt-get update
 RUN apt-get upgrade
 RUN locale-gen en_US.UTF-8
 ENV LANG       en_US.UTF-8
 ENV LC_ALL     en_US.UTF-8
-
-# Set noninteractive mode for apt-get
-ENV DEBIAN_FRONTEND noninteractive
 
 # Install
 RUN apt-get install -y nginx \
