@@ -9,5 +9,6 @@ set -e
 # Ensure mysql owns the DATADIR
 chown -R www-data $DATADIR
 
+service mysql start
 service php5-fpm start
 /usr/sbin/nginx
