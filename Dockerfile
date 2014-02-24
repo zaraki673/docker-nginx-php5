@@ -5,9 +5,6 @@
 FROM debian:wheezy
 MAINTAINER Matt Renner <matt@rennernz.com>
 
-# Set noninteractive mode for apt-get
-ENV DEBIAN_FRONTEND noninteractive
-
 # Ensure UTF-8
 RUN apt-get update
 RUN apt-get -y upgrade
@@ -18,7 +15,6 @@ RUN apt-get install -y nginx \
 
 RUN echo "cgi.fix_pathinfo = 0;" >> /etc/php5/fpm/php.ini
 ADD nginx.conf /etc/nginx/nginx.conf
-ADD https://raw.github.com/h5bp/server-configs-nginx/master/h5bp/location/protect-system-files.conf /etc/nginx/conf/protect-system-files.conf
 ADD nginx-site.conf /etc/nginx/sites-available/default
 RUN sed -i -e 's/^listen =.*/listen = \/var\/run\/php5-fpm.sock/' /etc/php5/fpm/pool.d/www.conf
 
