@@ -2,10 +2,12 @@
 # http://wiki.nginx.org/
 # http://us.php.net/
 
-FROM debian:wheezy
+FROM ubuntu:14.04
 MAINTAINER Matt Renner <matt@rennernz.com>
 
 # Ensure UTF-8
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C300EE8C
+RUN echo deb http://ppa.launchpad.net/nginx/stable/ubuntu trusty main > /etc/apt/sources.list.d/nginx-stable-trusty.list
 RUN apt-get update
 RUN apt-get -y upgrade
 
