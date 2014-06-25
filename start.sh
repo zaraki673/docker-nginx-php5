@@ -7,4 +7,5 @@ DATADIR="/data"
 set -e
 
 service php5-fpm start
+chmod 666 /var/run/php5-fpm.sock
 /usr/sbin/nginx
