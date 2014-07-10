@@ -12,8 +12,7 @@ RUN apt-get update
 RUN apt-get -y upgrade
 
 # Install
-RUN apt-get install -y nginx \
-    php5-fpm php5-mysql php-apc php5-imagick php5-imap php5-mcrypt php5-gd libssh2-php
+RUN apt-get install -y nginx php5-fpm php5-mysql php-apc php5-imagick php5-imap php5-mcrypt php5-gd libssh2-php
 
 RUN mkdir -p /etc/nginx/sites-enabled
 
