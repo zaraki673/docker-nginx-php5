@@ -20,6 +20,7 @@ RUN echo "cgi.fix_pathinfo = 0;" >> /etc/php5/fpm/php.ini
 ADD nginx.conf /etc/nginx/nginx.conf
 ADD nginx-site.conf /etc/nginx/sites-enabled/default
 RUN sed -i -e 's/^listen =.*/listen = \/var\/run\/php5-fpm.sock/' /etc/php5/fpm/pool.d/www.conf
+RUN echo "include = /data/config/php-*.conf" >> /etc/php5/fpm/pool.d/www.conf
 
 RUN mkdir -p /etc/nginx/scripts
 ADD proxy_client_ip.php /etc/nginx/scripts/proxy_client_ip.php
