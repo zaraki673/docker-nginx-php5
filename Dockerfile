@@ -25,6 +25,9 @@ RUN echo "include = /data/config/php-*.conf" >> /etc/php5/fpm/pool.d/www.conf
 RUN mkdir -p /etc/nginx/scripts
 ADD proxy_client_ip.php /etc/nginx/scripts/proxy_client_ip.php
 
+# Create basedirs
+RUN mkdir -p /data/web /data/config
+
 # Decouple our data from our container.
 VOLUME ["/data"]
 VOLUME ["/var/log/nginx"]
