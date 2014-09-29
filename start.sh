@@ -1,10 +1,9 @@
-#!/bin/bash
-# Starts up Nginx and PHP within the container.
-
+#!/bin/bash -e
 DATADIR="/data"
 
-# Don't continue if we catch an error.
-set -e
+[[ -d "/data/" ]] || mkdir /data
+[[ -d "/data/config" ]] || mkdir /data/config
+[[ -d "/data/web" ]] || mkdir /data/web
 
 service php5-fpm start
 chmod 666 /var/run/php5-fpm.sock
