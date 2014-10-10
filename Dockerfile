@@ -3,7 +3,7 @@
 # http://us.php.net/
 
 FROM ubuntu:14.04
-MAINTAINER Martijn van Maurik <docker@vmaurik.nl>
+MAINTAINER Kevin Larsonneur <kl@klarsonneur.eu>
  
 # Ensure UTF-8
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ABF5BD827BD9BF62
